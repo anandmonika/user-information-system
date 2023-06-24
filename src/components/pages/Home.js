@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as bootstrap from "bootstrap";
 import {Link} from "react-router-dom";
 import axios from "axios";
-
+import { API_URL } from "../../config";
 const Home = () => {
     const [users, setUsers] = useState([]);
     const [userToBeDeleted, setUserToBeDelete] = useState(null);
@@ -16,7 +16,7 @@ const Home = () => {
             keyboard: false
         })
         setConfirmationModal(confirmation);
-        const result = await axios.get("http://localhost:3001/users");
+        const result = await axios.get(`${API_URL}/users`);
         setUsers(result.data);
         
     };
@@ -28,7 +28,7 @@ const Home = () => {
 
     const deleteUser = async id => {
         if(!userToBeDeleted) return;
-        await axios.delete(`http://localhost:3001/users/${userToBeDeleted}`);
+        await axios.delete(`${API_URL}/users/${userToBeDeleted}`);
         loadUser();
         confirmationModal.hide();
     };

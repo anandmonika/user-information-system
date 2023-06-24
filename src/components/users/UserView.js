@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 const User = () =>{
 
@@ -16,7 +17,7 @@ const User = () =>{
     },[]);
 
     const loadUser = async () =>{
-        const result = await axios.get(`http://localhost:3001/users/${id}`);
+        const result = await axios.get(`${API_URL}/users/${id}`);
         setUser(result.data);
      };
 

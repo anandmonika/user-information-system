@@ -1,6 +1,7 @@
 import {React, useState, useRef} from "react";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 
 const Adduser = () =>{
@@ -24,7 +25,7 @@ const Adduser = () =>{
         formRef.current.classList.add('was-validated');
         if(!isValidated) e.stopPropagation();
         else {
-            await axios.post("http://localhost:3001/users",user)
+            await axios.post(`${API_URL}/users`,user)
             history.push("/");
         }
      }

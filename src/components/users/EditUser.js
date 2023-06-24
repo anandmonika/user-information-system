@@ -1,6 +1,7 @@
 import React, {useState,useEffect, useRef} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 
 const EditUser = () =>{
@@ -30,13 +31,13 @@ const EditUser = () =>{
         formRef.current.classList.add('was-validated');
         if(!isValidated) e.stopPropagation();
         else {
-            await axios.put(`http://localhost:3001/users/${id}`,user)
+            await axios.put(`${API_URL}/users/${id}`,user)
             history.push("/");
         }
      };
 
      const loadUser = async () =>{
-        const result = await axios.get(`http://localhost:3001/users/${id}`);
+        const result = await axios.get(`${API_URL}/users/${id}`);
         setUser(result.data);
      };
     return(
