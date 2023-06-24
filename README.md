@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# User Information Management System
+
+This is a user management system built for managing the user's information in a single place. It supports addition, deletion, and edit functionality along with that you can view the user information with a single click.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
